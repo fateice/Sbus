@@ -72,7 +72,7 @@ public class Main5Activity extends AppCompatActivity {
                                         List<String> _data = new ArrayList<String>();
 
                                         _data.add(res.getResult().get(0).get_id());
-                                        _data.add(res.getResult().get(0).getInfo());
+                                        _data.add(res.getResult().get(0).getInfo()                                          );
 
                                         res.getResult().get(0).getStats();
 

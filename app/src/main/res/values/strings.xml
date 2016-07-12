@@ -21,4 +21,7 @@
     </string>
     <string name="title_activity_main2">Main2Activity</string>
     <string name="title_activity_main3">Main3Activity</string>
+    <string name="linetext">路线查询</string>
+    <string name="stoptext">站点查询</string>
+    <string name="destext">起始地-目的地查询</string>
 </resources>

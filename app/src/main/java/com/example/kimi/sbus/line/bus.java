@@ -8,7 +8,7 @@ import java.util.Set;
 public class bus {
     private String _id;
     private String info;
-    private Set<com.example.kimi.sbus.line.stats> stats;
+    private Set<stats> stats;
     public String get_id() {
         return _id;
     }
