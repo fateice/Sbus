@@ -1,6 +1,8 @@
 package com.example.kimi.sbus;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -21,6 +23,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +37,8 @@ public class MainActivity extends AppCompatActivity
         _data.add("ch2");
         _data.add("ch3");
         _data.add("ch4");
+
+        ssave();
 
         ArrayAdapter<String> _adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,_data);
         _listv.setAdapter(_adapter);
@@ -91,17 +96,38 @@ public class MainActivity extends AppCompatActivity
 //        });
 
 
+
+    }
+
+
+    public void ssave(){
+        SharedPreferences sharedPreferences = getSharedPreferences("ussss", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("Kimi","哈尔滨");
+        editor.commit();
+    }
+
+    public String sget(String name){
+        SharedPreferences sharedPreferences = getSharedPreferences("ussss",Context.MODE_PRIVATE);
+        String city = sharedPreferences.getString(name,"");
+        return city;
     }
 
     public void fabline (View view)
     {
+        String city="";
+        city = sget("Kimi");
         Intent intent = new Intent();
+        intent.putExtra("extra",city);
         intent.setClass(MainActivity.this,Main5Activity.class);
         startActivity(intent);
     }
 
 
-
+    @Override
+    public SharedPreferences getPreferences(int mode) {
+        return super.getPreferences(mode);
+    }
 
     @Override
     public void onBackPressed() {

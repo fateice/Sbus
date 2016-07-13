@@ -1,5 +1,6 @@
 package com.example.kimi.sbus;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -35,11 +36,14 @@ public class Main5Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main5);
 
+        Intent intent = getIntent();
+        String city = intent.getStringExtra("extra");
+
 
         final EditText editTextcity = (EditText)findViewById(R.id.inputcity);
         final EditText editTextline = (EditText)findViewById(R.id.inputline);
 
-
+        editTextcity.setText(city);
 
         Button button = (Button)findViewById(R.id.linesearch);
         button.setOnClickListener(new Button.OnClickListener(){
